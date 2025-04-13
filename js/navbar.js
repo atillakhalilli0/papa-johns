@@ -14,13 +14,13 @@ function printCats() {
   cats.forEach((cat) => {
     document.getElementById("navbar").innerHTML += `
             <li>
-                <a href="http://127.0.0.1:5500/index.html?id=${cat.category}" class="">
+                <a href="https://papa-johns-byatilla.vercel.app/?id=${cat.category}" class="">
                     ${cat.category}
                 </a>
             </li>
         `;
     document.getElementById("footerList").innerHTML += `
-            <li class="my-1"><a class="hover:underline" href="http://127.0.0.1:5500/index.html?id=${cat.category}" class="">
+            <li class="my-1"><a class="hover:underline" href="https://papa-johns-byatilla.vercel.app/?id=${cat.category}" class="">
                     ${cat.category}
                 </a></li>
         `;
