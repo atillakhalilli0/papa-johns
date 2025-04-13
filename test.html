@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let loading = true;
+      let data = null;
+      let error = null;
+
+      console.log("Loading başladı...");
+
+      fetch("https://dummyjson.com/products")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((json) => {
+          data = json;
+          console.log("Veri geldi:", data);
+        })
+        .catch((err) => {
+          error = err;
+          console.error("Hata:", error);
+        })
+        .finally(() => {
+          loading = false;
+          console.log("Loading bitti.");
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 bg-white rounded-lg border">
+    <!-- Title field -->
+    <div class="space-y-2">
+      <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+      <input type="text" id="title" name="title" placeholder="Pizza Name" 
+             class="w-full p-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:border-red-500">
+    </div>
+    
+    <!-- Price field -->
+    <div class="space-y-2">
+      <label for="price" class="block text-sm font-medium text-gray-700">Price (M)</label>
+      <input type="number" id="price" name="price" placeholder="0.00" 
+             class="w-full p-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:border-red-500">
+    </div>
+    
+    <!-- Category selector -->
+    <div class="space-y-2">
+      <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+      <select id="category" name="category" 
+              class="w-full p-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:border-red-500">
+        <option value="pizza">Pizza</option>
+        <option value="sides">Sides</option>
+        <option value="drinks">Drinks</option>
+      </select>
+    </div>
+    
+    <!-- Composition field - spans full width -->
+    <div class="space-y-2 col-span-1 md:col-span-2 lg:col-span-3">
+      <label for="composition" class="block text-sm font-medium text-gray-700">Composition</label>
+      <textarea id="composition" name="composition" rows="2" placeholder="List ingredients..." 
+                class="w-full p-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:border-red-500"></textarea>
+    </div>
+    
+    <!-- Image URL field - spans 2 columns on larger screens -->
+    <div class="space-y-2 col-span-1 md:col-span-2">
+      <label for="img" class="block text-sm font-medium text-gray-700">Image URL</label>
+      <input type="text" id="img" name="img" placeholder="https://example.com/image.jpg" 
+             class="w-full p-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:border-red-500">
+    </div>
+    
+    <!-- Subcategory tags -->
+    <div class="space-y-2">
+      <label class="block text-sm font-medium text-gray-700">Subcategory</label>
+      <div class="flex flex-wrap gap-2">
+        <label class="inline-flex items-center px-3 py-1.5 bg-red-50 border border-red-200 rounded-full">
+          <input type="checkbox" name="subcategory[]" value="cheeken" class="rounded text-red-500 mr-1.5">
+          <span class="text-sm text-red-700">Cheeken</span>
+        </label>
+        <label class="inline-flex items-center px-3 py-1.5 bg-red-50 border border-red-200 rounded-full">
+          <input type="checkbox" name="subcategory[]" value="meat" class="rounded text-red-500 mr-1.5">
+          <span class="text-sm text-red-700">Meat</span>
+        </label>
+        <label class="inline-flex items-center px-3 py-1.5 bg-red-50 border border-red-200 rounded-full">
+          <input type="checkbox" name="subcategory[]" value="veg" class="rounded text-red-500 mr-1.5">
+          <span class="text-sm text-red-700">Vegetarian</span>
+        </label>
+      </div>
+    </div>
+    
+    <!-- Variations section - spans full width -->
+    <div class="space-y-3 col-span-1 md:col-span-2 lg:col-span-3">
+      <div class="flex items-center justify-between">
+        <label class="block text-sm font-medium text-gray-700">Variations</label>
+        <button type="button" class="inline-flex items-center px-2.5 py-1.5 text-xs font-medium rounded border border-red-300 bg-white text-red-700 hover:bg-red-50">
+          Add New
+        </button>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 bg-gray-50 rounded-lg">
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Type</label>
+          <select class="w-full p-2 border border-gray-300 rounded-md text-sm">
+            <option>Ənənəvi</option>
+            <option>Nazik</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Size</label>
+          <select class="w-full p-2 border border-gray-300 rounded-md text-sm">
+            <option>Kiçik, 23 sm</option>
+            <option>Orta, 30 sm</option>
+            <option>Böyük, 35 sm</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Price (₼)</label>
+          <input type="number" class="w-full p-2 border border-gray-300 rounded-md text-sm">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Submit button - spans full width -->
+    <div class="col-span-1 md:col-span-2 lg:col-span-3 flex justify-end mt-4">
+      <button type="submit" class="px-5 py-2.5 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 focus:ring-4 focus:ring-red-300">
+        Save Pizza
+      </button>
+    </div>
+  </form>
+
+  <div id="card" class="bg-white rounded-lg shadow-2xl overflow-hidden">
+    <div class="h-64 overflow-hidden">
+        <!-- Image placeholder -->
+        <img class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" src="${item.img}" alt="Pizza">
+    </div>
+    <div class="p-4">
+        <h3 class="text-xl font-bold text-gray-800 mb-2">${item.title}</h3>
+        <p class="xl:w-[80%] text-gray-600 mb-3">${item.composition}</p>
+        <div class="flex justify-between items-center">
+            <span class="text-lg font-semibold text-red-600">${item.price} ₼</span>
+            <div>
+                <button onclick="handleEdit('${item.id}')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                <button onclick="deletePizza('${item.id}')" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"><i class="fa-solid fa-ban"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
