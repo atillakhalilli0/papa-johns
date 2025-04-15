@@ -9,18 +9,14 @@ async function getData() {
     renderCategories();
 }
 getData();
-function loader(){
-    
-}
-const skeletonLoader = document.getElementById("skeletonLoader")
+
 export async function renderCategories() {
     const menuData = await categoryData(data)
     spinner.style.display = "none"
-    skeletonLoader.style.display = "none"
+    swipersSection.innerHTML = ""
     cat.innerHTML = ""
     menuData.forEach(item => {    
     $("#inpButton").show();
-        swipersSection.innerHTML = ""
         cat.innerHTML += `
         <div id="card" class="bg-white dark:bg-green-800 rounded-lg shadow-2xl overflow-hidden">
             <div class="h-64 overflow-hidden">
