@@ -22,16 +22,16 @@ export async function renderCategories() {
     $("#inpButton").show();
         swipersSection.innerHTML = ""
         cat.innerHTML += `
-        <div id="card" class="bg-white dark:bg-purple-950 rounded-lg shadow-2xl overflow-hidden">
+        <div id="card" class="bg-white dark:bg-green-800 rounded-lg shadow-2xl overflow-hidden">
             <div class="h-64 overflow-hidden">
                 <!-- Image placeholder -->
                 <img onerror="this.src='https://imgs.search.brave.com/rTUyGvW7l7ytTuWvFFOH8pu4wO01bsfKlbTfpLM_UEY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTgy/NzYzMTAyL3Bob3Rv/L3dhcm5pbmcuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWVs/NVZWdmt4VEZqQ2ho/emdTYk12bV9WOC1n/UVhUUnBpZ21IbFF2/YlhKU2s9'" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" src="${item.img}" alt="Pizza">
             </div>
             <div class="p-4">
-                <h3 class="text-xl font-bold text-gray-800 mb-2">${item.title}</h3>
+                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">${item.title}</h3>
                 <p class="xl:w-[80%] text-gray-600 mb-3">${item.composition}</p>
                 <div class="flex justify-between items-center">
-                    <span class="text-lg font-semibold text-red-600">${item.price} ₼</span>
+                    <span class="text-lg font-semibold text-red-600 dark:text-white">${item.price} ₼</span>
                     <div>
                         <button onclick="handleEdit('${item.id}')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
                         <button onclick="deletePizza('${item.id}', '${item.title}')" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"><i class="fa-solid fa-ban"></i></button>
