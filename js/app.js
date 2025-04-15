@@ -11,8 +11,8 @@ async function getData() {
 getData();
 
 export async function renderCategories() {
-    swipersSection.style.display = "none"
     const menuData = await categoryData(data)
+    swipersSection.style.display = "none"
     spinner.style.display = "none"
     // swipersSection.innerHTML = ""
     cat.innerHTML = ""
