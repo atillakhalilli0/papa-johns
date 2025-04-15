@@ -22,7 +22,7 @@ export async function renderCategories() {
     $("#inpButton").show();
         swipersSection.innerHTML = ""
         cat.innerHTML += `
-        <div id="card" class="bg-white rounded-lg shadow-2xl overflow-hidden">
+        <div id="card" class="bg-white dark:bg-purple-950 rounded-lg shadow-2xl overflow-hidden">
             <div class="h-64 overflow-hidden">
                 <!-- Image placeholder -->
                 <img onerror="this.src='https://imgs.search.brave.com/rTUyGvW7l7ytTuWvFFOH8pu4wO01bsfKlbTfpLM_UEY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTgy/NzYzMTAyL3Bob3Rv/L3dhcm5pbmcuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWVs/NVZWdmt4VEZqQ2ho/emdTYk12bV9WOC1n/UVhUUnBpZ21IbFF2/YlhKU2s9'" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" src="${item.img}" alt="Pizza">
