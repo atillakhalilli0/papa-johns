@@ -26,7 +26,7 @@ export async function renderCategories() {
             </div>
             <div class="p-4">
                 <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">${item.title}</h3>
-                <p class="xl:w-[80%] text-gray-600 mb-3">${item.composition}</p>
+                <p class="xl:w-[80%] text-gray-600 dark:text-white mb-3">${item.composition}</p>
                 <div class="flex justify-between items-center">
                     <span class="text-lg font-semibold text-red-600 dark:text-white">${item.price} ₼</span>
                     <div>
