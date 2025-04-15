@@ -3,7 +3,6 @@ import { getAllCategories, categoryData, categoryDel, createProduct, updateProdu
 let data;
 
 const cat = document.getElementById("cat");
-// const inpButton = document.getElementById("inpButton")
 async function getData() {
     data = await getAllCategories();
     renderCategories();
@@ -21,7 +20,6 @@ export async function renderCategories() {
         cat.innerHTML += `
         <div id="card" class="bg-white dark:bg-green-800 rounded-lg shadow-2xl overflow-hidden">
             <div class="h-64 overflow-hidden">
-                <!-- Image placeholder -->
                 <img onerror="this.src='https://imgs.search.brave.com/rTUyGvW7l7ytTuWvFFOH8pu4wO01bsfKlbTfpLM_UEY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTgy/NzYzMTAyL3Bob3Rv/L3dhcm5pbmcuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWVs/NVZWdmt4VEZqQ2ho/emdTYk12bV9WOC1n/UVhUUnBpZ21IbFF2/YlhKU2s9'" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" src="${item.img}" alt="Pizza">
             </div>
             <div class="p-4">
@@ -53,8 +51,9 @@ window.deletePizza = async function(id, title) {
 
     if (result.isConfirmed) {
         await categoryDel(id, data);
+        data = data.filter(item => item.id != id);
+        renderCategories();
         Swal.fire("Silindi!", `"${title}" uğurla silindi.`, "success");
-        getData();
     }
 }
 
@@ -83,12 +82,19 @@ window.createPost = async function (event) {
     const newProduct = getInpValues();
     const res = await createProduct(newProduct);
     if (res?.ok) {
+        if (res.newProduct && res.newProduct.id) {
+            data.push(res.newProduct);
+        } else {
+            await getData();
+        }
+        renderCategories();
+        
         Swal.fire({
-            title: "Good job!",
-            text: "You clicked the button!",
+            title: "Əla!",
+            text: "Yeni məhsul Əlavə edildi!",
             icon: "success"
-          });
-        getData();
+        });
+        
         $("#inputSection").hide(300)
         globId = null;
         inps.forEach(inp => inp.value = "")
@@ -130,12 +136,18 @@ window.updatePost = async function () {
 
     const res = await updateProduct(globId, updatedObj);
     if (res?.ok) {
+        const index = data.findIndex(item => item.id == globId);
+        if (index !== -1) {
+            data[index] = { ...data[index], ...updatedObj };
+        }
+        renderCategories();
+        
         Swal.fire({
             title: "Uğurla yeniləndi!",
             text: "Məhsul məlumatları dəyişdirildi.",
             icon: "success"
         });
-        getData(); 
+        
         $("#inputSection").hide(300)
         globId = null;
         inps.forEach(inp => inp.value = "")
@@ -147,4 +159,3 @@ window.updatePost = async function () {
         });
     }
 };
-
