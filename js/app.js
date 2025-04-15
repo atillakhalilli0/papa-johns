@@ -13,7 +13,8 @@ getData();
 export async function renderCategories() {
     const menuData = await categoryData(data)
     spinner.style.display = "none"
-    swipersSection.innerHTML = ""
+    swipersSection.style.display = "none"
+    // swipersSection.innerHTML = ""
     cat.innerHTML = ""
     menuData.forEach(item => {    
     $("#inpButton").show();
