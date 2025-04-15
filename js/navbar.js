@@ -14,7 +14,7 @@ function printCats() {
   cats.forEach((cat) => {
     document.getElementById("navbar").innerHTML += `
             <li>
-                <a href="https://papa-johns-byatilla.vercel.app/?id=${cat.category}" class="">
+                <a href="https://papa-johns-byatilla.vercel.app/?id=${cat.category}" class="hover:underline">
                     ${cat.category}
                 </a>
             </li>

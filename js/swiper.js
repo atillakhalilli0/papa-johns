@@ -25,7 +25,7 @@ async function renderList() {
               return `
             <div class="swiper-container">
               <div class="flex justify-between items-center mb-8">
-                <a href="http://127.0.0.1:5500/index.html?id=${cat.category}" class="text-3xl font-bold text-gray-800 capitalize">
+                <a href="http://127.0.0.1:5500/index.html?id=${cat.category}" class="text-3xl font-bold dark:text-white text-gray-800 capitalize">
                   <span class="border-b-4 border-red-500 pb-1">${
                     cat.category
                   }</span>
@@ -53,7 +53,7 @@ async function renderList() {
                     .map(
                       (item) => `
                     <div class="swiper-slide">
-                        <div id="card" class="bg-white rounded-xl shadow-lg overflow-hidden h-96 transition-all duration-300 hover:shadow-2xl border border-gray-100">
+                        <div id="card" class="bg-white  dark:bg-green-800 rounded-xl shadow-lg overflow-hidden h-96 transition-all duration-300 hover:shadow-2xl border border-gray-100">
                             <div class="h-64 overflow-hidden relative">
                             <!-- Image with consistent height -->
                             <img class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" src="${item.img}" alt="${item.title}">
@@ -61,10 +61,10 @@ async function renderList() {
                             <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-30"></div>
                             </div>
                             <div class="p-5">
-                            <h3 class="text-xl font-bold text-gray-800 mb-3 line-clamp-1">${item.title}</h3>
+                            <h3 class="text-xl font-bold dark:text-white text-gray-800 mb-3 line-clamp-1">${item.title}</h3>
                             <div class="flex justify-between items-center">
-                                <span class="text-lg font-bold text-red-600">${item.price} ₼</span>
-                                <span class="inline-block px-3 py-1 bg-red-50 text-red-600 text-sm font-medium rounded-full">${cat.category}</span>
+                                <span class="text-xl font-bold dark:text-white text-red-600">${item.price} ₼</span>
+                                <span class="inline-block capitalize px-3 py-1 bg-red-50 text-red-600 dark:bg-green-50 dark:text-green-600 text-sm font-medium rounded-full">${cat.category}</span>
                             </div>
                             </div>
                         </div>
