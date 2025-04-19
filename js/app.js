@@ -26,7 +26,7 @@ export async function renderCategories() {
         cat.innerHTML += `
             <div id="card" class="bg-white dark:bg-green-800 rounded-lg shadow-2xl overflow-hidden">
                 <div class="h-64 overflow-hidden">
-                    <img onerror="this.src='https://via.placeholder.com/300'" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" src="${item.img}" alt="Product">
+                    <img onerror="this.src='https://imgs.search.brave.com/AeQk-QHg_K3eaddBNZiOguw7BT54rEFmR18HrhgFBFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4y/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvaW1hZ2UtMS82/NC9JbWFnZS0xMi01/MTIucG5n'" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" src="${item.img}" alt="Product">
                 </div>
                 <div class="p-4">
                     <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">${item.title}</h3>
